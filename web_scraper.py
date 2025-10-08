@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import csv
 import json
 import argparse
-from typing import List, Any, Dict, Optional
+from typing import List, Any, Dict, Optional,Tuple
 from dataclasses import dataclass
 
 @dataclass
@@ -45,6 +45,18 @@ def parse_hackernews(html: str) -> list[dict]:
         })
     return out
 
+def parse_qoutes_page(html:str)-> Tuple[List[dict], Optional[str]]:
+    soup = BeautifulSoup(html, "html.parser")
+    out:List[dict]=[]
+    for q in soup.select(".qoute"):
+        text = q.select_one(".text").get_text(strip=True)
+        author = q.select_one(".author").get_text(strip=True)
+        tags = [t.get_text(strip=True) for t in q.select(".tags")]
+        out.append({"text": text, "author": author, "tags":tags})
+    next_link = soup.select_one("li.next a")
+    next_href = next_link.get("href")if next_link else None
+    return out, next_href
+
 def _to_int(s:str) -> Optional[int]:
     try:
         return int(s)
@@ -60,14 +72,23 @@ def _leading_int(s:str) -> int:
             break
     return int(num) if num else 0
 
+SCRAPE_TARGETS: Dict[str, Dict[str,Any]]={
+    "hn":{
+        "name":"Hacker News (front page)",
+        "urls": ["https://news.ycombinator.com/"],
+        "fetch":lambda urls: urls, 
+        "parse": parse_hackernews,
+        "fields_hint":["rank", "title","url","site","points","author","comments"]
+    },
+}
+
 def save_csv(records: list[dict], path:str):
-    if not records:
-        with open(path, "w", newline="", encoding="utf=8")as f:
-            f.write("")
-        return
-    keys = sorted({k for r in records for k in r.keys()})
+    keys = set()
+    for r in records:
+        keys.update(r.keys())
+    fieldnames = sorted(keys())
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=keys)
+        w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for r in records:
             w.writerow(r)
@@ -76,15 +97,34 @@ def save_json(records: list[dict], path:str):
     with open(path, "w", encoding="utf-8")as f:
         json.dump(records,f,ensure_ascii=False, indent=2)
 
+
+def run_scrape(site:str, out:str):
+    meta = SCRAPE_TARGETS[site]
+    records:List[dict]=[]
+    source_urls:List[str]=[]
+    for url in meta["fetch"](meta["urls"]):
+        print(f"Fetching {url}")
+        html = fetch_html(url)
+        source_urls.append(url)
+        page_records = meta["parse"](html)
+        print(f"Parsed {len(page_records)} records")
+        records.extend(page_records)
+    if out.endswith(".csv"):
+        save_csv(records,out)
+    else:
+        save_json(records, out)
+    print(f"Saved {len(records)} records to {out}")
+    return ScrapeResult(records=records, source_urls=source_urls)
+    
 def parse_args():
     p = argparse.ArgumentParser(description="Modular web scraper")
-    p.add_argument("--site", help="Target site code (e.g., hn)")
-    p.add_argument("--out", help="Output path (.csv or .json)")
+    p.add_argument("--site", choices=list(SCRAPE_TARGETS.keys()), required=True)
+    p.add_argument("--out", required=True, help="Output path (.csv or .json)")
     return p.parse_args()
 
 def main():
     args = parse_args()
-    print("Args:", vars(args))
+    run_scrape(args.site,args.out)
     
 if __name__ == "__main__":
     main()
