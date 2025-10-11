@@ -1,0 +1,272 @@
+[
+  {
+    "rank": 1,
+    "title": "The <output> Tag",
+    "url": "https://denodell.com/blog/html-best-kept-secret-output-tag",
+    "site": "denodell.com",
+    "points": 316,
+    "author": "todsacerdoti",
+    "comments": 65
+  },
+  {
+    "rank": 2,
+    "title": "AMD and Sony's PS6 chipset aims to rethink the current graphics pipeline",
+    "url": "https://arstechnica.com/gaming/2025/10/amd-and-sony-tease-new-chip-architecture-ahead-of-playstation-6/",
+    "site": "arstechnica.com",
+    "points": 164,
+    "author": "zdw",
+    "comments": 132
+  },
+  {
+    "rank": 3,
+    "title": "Vietnam Airlines Data Breach",
+    "url": "https://haveibeenpwned.com/Breach/VietnamAirlines",
+    "site": "haveibeenpwned.com",
+    "points": 37,
+    "author": "pbd",
+    "comments": 13
+  },
+  {
+    "rank": 4,
+    "title": "Daniel Kahneman opted for assisted suicide in Switzerland",
+    "url": "https://www.bluewin.ch/en/entertainment/nobel-prize-winner-opts-for-suicide-in-switzerland-2619460.html",
+    "site": "bluewin.ch",
+    "points": 199,
+    "author": "kvam",
+    "comments": 149
+  },
+  {
+    "rank": 5,
+    "title": "Windows Subsystem for FreeBSD",
+    "url": "https://github.com/BalajeS/WSL-For-FreeBSD",
+    "site": "github.com/balajes",
+    "points": 40,
+    "author": "rguiscard",
+    "comments": 0
+  },
+  {
+    "rank": 6,
+    "title": "I built physical album cards with NFC tags to teach my son music discovery",
+    "url": "https://fulghum.io/album-cards",
+    "site": "fulghum.io",
+    "points": 435,
+    "author": "jordanf",
+    "comments": 142
+  },
+  {
+    "rank": 7,
+    "title": "Superpowers: How I'm using coding agents in October 2025",
+    "url": "https://blog.fsck.com/2025/10/09/superpowers/",
+    "site": "fsck.com",
+    "points": 27,
+    "author": "Ch00k",
+    "comments": 1
+  },
+  {
+    "rank": 8,
+    "title": "(Re)Introducing the Pebble Appstore",
+    "url": "https://ericmigi.com/blog/re-introducing-the-pebble-appstore/",
+    "site": "ericmigi.com",
+    "points": 194,
+    "author": "duck",
+    "comments": 34
+  },
+  {
+    "rank": 9,
+    "title": "How hard do you have to hit a chicken to cook it? (2020)",
+    "url": "https://james-simon.github.io/blog/chicken-cooking/",
+    "site": "james-simon.github.io",
+    "points": 108,
+    "author": "jxmorris12",
+    "comments": 62
+  },
+  {
+    "rank": 10,
+    "title": "AV2 video codec delivers 30% lower bitrate than AV1, final spec due in late 2025",
+    "url": "https://videocardz.com/newz/av2-video-codec-delivers-30-lower-bitrate-than-av1-final-spec-due-in-late-2025",
+    "site": "videocardz.com",
+    "points": 128,
+    "author": "ksec",
+    "comments": 62
+  },
+  {
+    "rank": 11,
+    "title": "Learn Turbo Pascal – a video series originally released on VHS",
+    "url": "https://www.youtube.com/watch?v=UOtonwG3DXM",
+    "site": "youtube.com",
+    "points": 29,
+    "author": "AlexeyBrin",
+    "comments": 2
+  },
+  {
+    "rank": 12,
+    "title": "The World Trade Center Under Construction Through Photos, 1966-1979",
+    "url": "https://rarehistoricalphotos.com/twin-towers-construction-photographs/",
+    "site": "rarehistoricalphotos.com",
+    "points": 20,
+    "author": "kinderjaje",
+    "comments": 10
+  },
+  {
+    "rank": 13,
+    "title": "Intelligent Search in Rails with Typesense",
+    "url": "https://avohq.io/blog/intelligent-search-in-rails-with-typesense",
+    "site": "avohq.io",
+    "points": 37,
+    "author": "adrianthedev",
+    "comments": 5
+  },
+  {
+    "rank": 14,
+    "title": "Tangled, a Git collaboration platform built on atproto",
+    "url": "https://blog.tangled.org/intro",
+    "site": "tangled.org",
+    "points": 224,
+    "author": "mjbellantoni",
+    "comments": 57
+  },
+  {
+    "rank": 15,
+    "title": "Let's Take Esoteric Programming Languages Seriously",
+    "url": "https://feelingof.com/episodes/078/",
+    "site": "feelingof.com",
+    "points": 26,
+    "author": "strombolini",
+    "comments": 3
+  },
+  {
+    "rank": 16,
+    "title": "Synthetic aperture radar autofocus and calibration",
+    "url": "https://hforsten.com/synthetic-aperture-radar-autofocus-and-calibration.html",
+    "site": "hforsten.com",
+    "points": 120,
+    "author": "nbernard",
+    "comments": 7
+  },
+  {
+    "rank": 17,
+    "title": "Programming in the Sun: A Year with the Daylight Computer",
+    "url": "https://wickstrom.tech/2025-10-10-programming-in-the-sun-a-year-with-the-daylight-computer.html",
+    "site": "wickstrom.tech",
+    "points": 102,
+    "author": "ghuntley",
+    "comments": 29
+  },
+  {
+    "rank": 18,
+    "title": "Does our “need for speed” make our wi-fi suck?",
+    "url": "https://orb.net/blog/does-speed-make-wifi-suck",
+    "site": "orb.net",
+    "points": 203,
+    "author": "jamies",
+    "comments": 243
+  },
+  {
+    "rank": 19,
+    "title": "Show HN: I invented a new generative model and got accepted to ICLR",
+    "url": "https://discrete-distribution-networks.github.io/",
+    "site": "discrete-distribution-networks.github.io",
+    "points": 585,
+    "author": "diyer22",
+    "comments": 77
+  },
+  {
+    "rank": 20,
+    "title": "Show HN: Semantic search over the National Gallery of Art",
+    "url": "https://nga.demo.mixedbread.com/",
+    "site": "mixedbread.com",
+    "points": 122,
+    "author": "breadislove",
+    "comments": 32
+  },
+  {
+    "rank": 21,
+    "title": "The Orphan Tsunami of 1700 [pdf]",
+    "url": "https://pubs.usgs.gov/pp/pp1707/pp1707.pdf",
+    "site": "usgs.gov",
+    "points": 3,
+    "author": "oliverkwebb",
+    "comments": 0
+  },
+  {
+    "rank": 22,
+    "title": "Show HN: A Digital Twin of my coffee roaster that runs in the browser",
+    "url": "https://autoroaster.com/",
+    "site": "autoroaster.com",
+    "points": 114,
+    "author": "jvkoch",
+    "comments": 31
+  },
+  {
+    "rank": 23,
+    "title": "Lánczos Interpolation Explained (2022)",
+    "url": "https://mazzo.li/posts/lanczos.html",
+    "site": "mazzo.li",
+    "points": 136,
+    "author": "tobr",
+    "comments": 9
+  },
+  {
+    "rank": 24,
+    "title": "Automated code reviews via mutation testing",
+    "url": "https://github.com/mbj/mutant",
+    "site": "github.com/mbj",
+    "points": 19,
+    "author": "mooreds",
+    "comments": 4
+  },
+  {
+    "rank": 25,
+    "title": "In a post-truth world truth-seeking is more important",
+    "url": "https://iai.tv/articles/in-a-post-truth-world-truth-seeking-is-more-important-than-ever-auid-3382",
+    "site": "iai.tv",
+    "points": 44,
+    "author": "benvanderbeek",
+    "comments": 25
+  },
+  {
+    "rank": 26,
+    "title": "A molecular motor minimizes energy waste",
+    "url": "https://physics.aps.org/articles/v18/167",
+    "site": "aps.org",
+    "points": 20,
+    "author": "lc0_stein",
+    "comments": 2
+  },
+  {
+    "rank": 27,
+    "title": "Hardware Stockholm Syndrome",
+    "url": "https://programmingsimplicity.substack.com/p/hardware-stockholm-syndrome",
+    "site": "programmingsimplicity.substack.com",
+    "points": 90,
+    "author": "rajiv_abraham",
+    "comments": 43
+  },
+  {
+    "rank": 28,
+    "title": "OpenGL: Mesh shaders in the current year",
+    "url": "https://www.supergoodcode.com/mesh-shaders-in-the-current-year/",
+    "site": "supergoodcode.com",
+    "points": 156,
+    "author": "pjmlp",
+    "comments": 115
+  },
+  {
+    "rank": 29,
+    "title": "ThalamusDB: Query text, tables, images, and audio",
+    "url": "https://github.com/itrummer/thalamusdb",
+    "site": "github.com/itrummer",
+    "points": 40,
+    "author": "itrummer",
+    "comments": 6
+  },
+  {
+    "rank": 30,
+    "title": "Ryanair flight landed at Manchester airport with six minutes of fuel left",
+    "url": "https://www.theguardian.com/business/2025/oct/10/ryanair-flight-landed-at-manchester-airport-with-six-minutes-of-fuel-left-flight-log-suggests",
+    "site": "theguardian.com",
+    "points": 661,
+    "author": "mazokum",
+    "comments": 499
+  }
+]
