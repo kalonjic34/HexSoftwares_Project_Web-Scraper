@@ -86,7 +86,10 @@ def iter_pages_quotes(base_url: str, pages: int, delay: float) -> Iterable[str]:
     while url and (seen < pages):
         yield url
         seen += 1
-        html = fetch_html(url)
+        try:
+            html = fetch_html(url)
+        except requests.RequestException:
+            break
         _, next_href = parse_quotes_page(html)
         if not next_href:
             break
@@ -147,26 +150,44 @@ def run_scrape(site: str, out: str, pages: int, delay: float):
     for url in url_iter:
         idx += 1
         print(f"[{idx}] Fetching {url}")
-        html = fetch_html(url)
+        try:
+            html = fetch_html(url)
+        except requests.HTTPError as e:
+            print(f"  HTTP error: {e}")
+            continue
+        except requests.RequestException as e:
+            print(f"  Network error: {e}")
+            continue
+
         source_urls.append(url)
-        page_records = meta["parse"](html)
-        print(f"    Parsed {len(page_records)} records")
+
+        try:
+            page_records = meta["parse"](html)
+        except Exception as e:
+            print(f"  Parse error: {e}")
+            continue
+
+        print(f"  Parsed {len(page_records)} records")
         records.extend(page_records)
+        time.sleep(delay)
+    print(f"Total: {len(records)} records from {len(source_urls)} page(s)")
     if out.endswith(".csv"):
         save_csv(records, out)
     else:
         save_json(records, out)
-    print(f"Saved {len(records)} records to {out}")
+
+    print(f"Saved to {out}")
     return ScrapeResult(records=records, source_urls=source_urls)
 
 
 def parse_args():
     p = argparse.ArgumentParser(description="Modular web scraper")
-    p.add_argument("--site", choices=list(SCRAPE_TARGETS.keys()), required=True)
-    p.add_argument("--out", required=True, help="Output path (.csv or .json)")
-    p.add_argument("--pages", type=int, default=None, help="Number of pages to scrape")
-    p.add_argument("--delay", type=float, default=0.8, help="Delay between requests (seconds)")
+    p.add_argument("--site", choices=list(SCRAPE_TARGETS.keys()))
+    p.add_argument("--out")
+    p.add_argument("--pages", type=int)
+    p.add_argument("--delay", type=float, default=0.8)
     return p.parse_args()
+
 
 def prompt_menu():
     print("Web Scraper")
@@ -193,7 +214,13 @@ def prompt_menu():
 
 def main():
     args = parse_args()
-    pages = args.pages or SCRAPE_TARGETS[args.site]["default_pages"]
-    run_scrape(args.site, args.out, pages, args.delay)
+    if not args.site or not args.out:
+        site, out, pages, delay = prompt_menu()
+    else:
+        site = args.site
+        out = args.out
+        pages = args.pages or SCRAPE_TARGETS[site]["default_pages"]
+        delay = args.delay
+    run_scrape(site, out, pages, delay)
 if __name__ == "__main__":
     main()
