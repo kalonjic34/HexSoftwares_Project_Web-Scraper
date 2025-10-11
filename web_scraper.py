@@ -168,6 +168,29 @@ def parse_args():
     p.add_argument("--delay", type=float, default=0.8, help="Delay between requests (seconds)")
     return p.parse_args()
 
+def prompt_menu():
+    print("Web Scraper")
+    print("-----------")
+    for key, meta in SCRAPE_TARGETS.items():
+        extra = " (paginated)" if meta["supports_pages"] else ""
+        print(f"- {meta['name']} [{key}]{extra}")
+    site = input("Choose site key: ").strip()
+    if site not in SCRAPE_TARGETS:
+        raise SystemExit("Unknown site.")
+    out = input("Output file (.csv or .json): ").strip()
+    if not (out.endswith(".csv") or out.endswith(".json")):
+        raise SystemExit("Output must end with .csv or .json")
+    pages = SCRAPE_TARGETS[site]["default_pages"]
+    if SCRAPE_TARGETS[site]["supports_pages"]:
+        raw = input(f"Pages [{pages}]: ").strip()
+        if raw:
+            pages = max(1, int(raw))
+    delay = 0.8
+    rawd = input(f"Delay seconds [{delay}]: ").strip()
+    if rawd:
+        delay = max(0.0, float(rawd))
+    return site, out, pages, delay
+
 def main():
     args = parse_args()
     pages = args.pages or SCRAPE_TARGETS[args.site]["default_pages"]
